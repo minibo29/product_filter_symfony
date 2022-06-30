@@ -4,11 +4,12 @@ namespace App\Entity;
 
 use App\Repository\PastaRepository as PastaRepositoryAlias;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass=PastaRepositoryAlias::class)
  */
-class Pasta
+class Pasta implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -122,5 +123,21 @@ class Pasta
         $this->properties = $properties;
 
         return $this;
+    }
+
+    /**
+     * @return array<mixed>
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'region' => $this->getRegion(),
+            'price' => $this->getPrice(),
+            'basePrice' => $this->getBasePrice(),
+            'manufacturer' => $this->getManufacturer(),
+            'properties' => $this->getProperties(),
+        ];
     }
 }

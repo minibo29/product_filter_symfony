@@ -1,0 +1,26 @@
+Query:
+  type: object
+  config:
+    description: "Main query"
+    fields:
+      pasta:
+        type: "Pasta"
+        args:
+          id:
+            type: "ID!"
+            description: "Pasta's id"
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\PastaResolver::resolve", [args["id"]])'
+      pastas:
+        args:
+          pager:
+            type: "Filter"
+
+
+
+
+#        argsBuilder: "Pager"
+#          pastaFilter: "PastaFilter!"
+#        argsBuilder: "PastaFilter"
+
+
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\PastaResolver::resolveCollection", [args])'

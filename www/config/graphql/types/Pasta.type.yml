@@ -1,0 +1,26 @@
+Pasta:
+  type: object
+  config:
+    description: ""
+    fields:
+      id:
+        type: "Int!"
+        description: "Pasta's Id"
+      name:
+        type: "String!"
+        description: "Pasta's name"
+      region:
+        type: "String!"
+        description: "Pasta's region"
+      price:
+        type: "String!"
+        description: "Pasta's  price"
+      basePrice:
+        type: "String!"
+        description: "Pasta's  basePrice"
+      manufacturer:
+        type: "String!"
+        description: "Pasta's  manufacturer"
+      properties:
+        type: "String!"
+        description: "Pasta's  properties"
